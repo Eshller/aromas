@@ -13,4 +13,4 @@ function minus(){
     }
 }
 
-// "http://192.168.0.108/get_items"
+server_ip = "http://192.168.0.108/get_items"
