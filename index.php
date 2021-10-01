@@ -632,8 +632,41 @@
                 <a href="#" class="delivery-choose-time">Choose time</a>
               </div>
             </div>
+              <?php
+                $url = "localhost:3000/get_items";
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER,true);
+                $result = curl_exec($ch);
+                curl_close($ch);
+                // echo $result;
+                $result = json_decode($result,true);
+                // echo '<pre>';
+                // print_r($result);
+                // echo "HOLA AMIGOS";
+                // print_r($result['items']);
+                
+              ?>
+
             <ul class="food-list">
-              <li class="food-list__item">
+              <?php
+                foreach($result['items'] as $list){
+                  // echo $list[0]." ";
+                  // foreach($list as $name)
+                  // echo "<tr><td>".$name."</td>";
+              
+                echo "<li class=\"food-list__item\">
+                <img class=\"food-image\" src=\"https://source.unsplash.com/250x250/?".$list[0]."\" />
+                <div class=\"food-buy-amount\">1 x</div>
+                <div class=\"food-name\">".$list[0]."&nbsp;<img src=\"images/".$list[1].".svg\" alt=\"non-veg\"></div>
+                <div class=\"food-price\">".$list[2]."</div>                
+              </li>";
+              $sum = $sum + $list[2];    
+            
+            }
+              ?>
+              
+              <!-- <li class="food-list__item">
                 <img class="food-image" src="https://i.loli.net/2020/04/06/7oZgORNCnGE5qhU.png" />
                 <div class="food-buy-amount">1 x</div>
                 <div class="food-name">Beach BBQBurger</div>
@@ -655,13 +688,16 @@
                 <img class="food-image" src="https://i.loli.net/2020/04/06/BN2JIuHAC6Gh3eR.png" />
                 <div class="food-name">Delivery</div>
                 <div class="food-price">₹0.00</div>
-              </li>
+              </li> -->
             </ul>
-            <div class="total-price">
-              <div class="total">Total:</div>
-              <div class="price">₹25.97</div>
-            </div>
-            <div class="buy-action">
+            <?php
+              echo "<div class=\"total-price\">
+              <div class=\"total\">Total:</div>
+              <div class=\"price\">₹".$sum."</div>
+            </div>"
+            ?>
+            
+            <!-- <div class="buy-action">
               <div class="person-number-input">
                 <div class="persons">Persons</div>
                 <div class="input-group input-spinner">
@@ -683,7 +719,7 @@
                     </svg>
                   </button>
                 </div>
-              </div>
+              </div> -->
               <!-- <button class="btn btn-warning checkout-btn">
               
 
@@ -694,7 +730,7 @@
               </button> -->
 
 
-<button id="rzp-button1">Pay</button>
+<button id="rzp-button1" class="btn btn-warning text-center">Pay</button>
 <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <script>
 var options = {
