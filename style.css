@@ -209,6 +209,13 @@ body {
   height: 125px;
   border-radius: 15px;
 }
+.restaurant-image:hover{
+  transition: 0.2s ease-in-out;
+  opacity: 0.2;
+  padding: 10px;
+  /* margin: -10px; */
+  background-color: lime;
+}
 .restaurant-list__item .restaurant-name {
   margin-top: 27px;
 }

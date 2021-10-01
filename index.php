@@ -577,7 +577,7 @@
               foreach($result['items'] as $list){
               
               echo "<li class=\"restaurant-list__item\">
-                <a href=\"#\"><img class=\"restaurant-image\" src=\"images/".$list[0]."\" /></a>
+                <a href=\"#\"><img class=\"restaurant-image img-fluid\" src=\"images/".$list[0].".jpg\" /></a>
                 <div class=\"restaurant-name\">".$list[0]."</div>
                 <div class=\"restaurant-info\">
                   <span class=\"restaurant-rate\"><svg t=\"1586144500681\" class=\"icon\" viewBox=\"0 0 1024 1024\" version=\"1.1\"
