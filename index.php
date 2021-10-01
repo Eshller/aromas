@@ -661,6 +661,8 @@
                 <div class=\"food-name\">".$list[0]."&nbsp;<img src=\"images/".$list[1].".svg\" alt=\"non-veg\"></div>
                 <div class=\"food-price\">".$list[2]."</div>                
               </li>";
+
+              $sum = 0;
               $sum = $sum + $list[2];    
             
             }
