@@ -1,0 +1,13 @@
+.list-group{
+    position: fixed;
+    /* margin-top: 10%; */
+    width: 20%;
+}
+.navbar{
+    position: fixed;
+    width: 100%;
+    margin-bottom: 10%;
+}
+.col{
+    margin-top: 10%;
+}
